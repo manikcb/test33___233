@@ -1,0 +1,33 @@
+#!/bin/bash
+
+# Directory where files are located
+TARGET_DIR="/home/manibandla/newdir"
+
+# Get the current date in the format MMDDYYYY
+CURRENT_DATE=$(date +"%m%d%Y")
+
+# Construct the file name with the desired format
+TARGET_FILE="filename_${CURRENT_DATE}.txt"
+
+# Full path to the file
+FULL_PATH="${TARGET_DIR}/${TARGET_FILE}"
+
+# Check if the file exists
+if [ -f "$FULL_PATH" ]; then
+    # Update file permissions
+    chmod 777 "$FULL_PATH"
+    echo "$(date): Permissions updated for $FULL_PATH" >> ./update_permissions.log
+else
+    echo "$(date): File $FULL_PATH does not exist" >> ./update_permissions.log
+fi
+
+
+-----------------
+
+crontab –e 
+1 
+30 13 * * * ~/mine.sh #MIN HOUR DOM MON DOW COMMAND 
+
+30 13 * * * /path/to/script.sh 
+
+crontab -l
