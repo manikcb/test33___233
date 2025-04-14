@@ -1,0 +1,32 @@
+Great! Here’s a clean, well-structured Oracle table design that fits your needs, with proper column naming conventions, data types, and a few additional suggestions for flexibility and clarity.
+
+Recommended Table Name: SERVICE_ID_USERS
+
+Column Name	Data Type	Description
+SERVICE_ID	VARCHAR2(100)	Unique identifier for the service (e.g., DB or Linux service ID)
+USER_NAME	VARCHAR2(100)	Full name of the user who uses this service
+USER_EMAIL	VARCHAR2(150)	Email address of the user
+USER_TYPE	VARCHAR2(20)	Internal or External user (INTERNAL, EXTERNAL)
+PROJECT_NAME	VARCHAR2(100)	(Optional) Project the user is part of
+TEAM_NAME	VARCHAR2(100)	Team or department name
+USER_TEAM_DL	VARCHAR2(150)	Team distribution list or group email
+SERVICE_POC_NAME	VARCHAR2(100)	Name of the person responsible for the service
+SERVICE_POC_EMAIL	VARCHAR2(150)	Email of the POC
+ENVIRONMENT	VARCHAR2(50)	Environment (e.g., DEV, QA, PROD)
+REGION	VARCHAR2(50)	(Optional) Region like US-EAST, EU-WEST, etc.
+IS_ACTIVE	CHAR(1)	Whether the mapping is active (Y/N)
+CREATED_AT	DATE	Record creation timestamp
+UPDATED_AT	DATE	Last updated timestamp
+COMMENTS	VARCHAR2(500)	(Optional) Notes or additional info
+
+Column Naming Notes
+	•	Followed Oracle-style conventions (uppercase, underscore-separated).
+	•	Descriptive names for clarity (e.g., SERVICE_POC_EMAIL instead of just POC_EMAIL).
+	•	Consider constraints like NOT NULL on SERVICE_ID, USER_NAME, etc.
+	•	Add indexes on frequently queried columns like SERVICE_ID, USER_EMAIL.
+
+Optional Enhancements
+	•	Create a separate SERVICE_DETAILS table to normalize service info if many users share a service.
+	•	Same for TEAM_DETAILS and USER_DETAILS if you’re storing more metadata.
+
+Would you like the SQL CREATE TABLE script for this structure? I can provide that too.
